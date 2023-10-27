@@ -78,12 +78,10 @@ import java.util.Collections;
                 if (myFile.createNewFile()) {
                     System.out.println("Inventory does not exist! Creating file...\n");
                 }
-
-
             } catch (IOException e) {
                 // Handle any IOException that may occur during file creation
-                System.out.println("Error: Could not run file creation");
-                System.out.println("========================================");
+                System.out.println("Error: Could not run file creation!");
+                System.out.println("===========================");
             }
 
             try {
@@ -93,10 +91,10 @@ import java.util.Collections;
                 // Skip the first line assuming it's a header or not needed
                 bufferedReader.readLine();
 
-                // Read lines from the file until the end is reached
+                // Read the lines from the file until the end
                 String input;
                 while ((input = bufferedReader.readLine()) != null) {
-                    // Split the input line using the '|' delimiter
+                    // Split the input line using the "|" delimiter
                     String[] tokens = input.split("\\|");
 
                     // Extract and parse data from the split tokens
@@ -121,7 +119,7 @@ import java.util.Collections;
             } catch (Exception ex) {
                 // Handle any exceptions that may occur during the file reading or parsing
                 System.out.println("Error!");
-                System.out.println("====================================");
+                System.out.println("=================================");
             }
         }
 
@@ -138,19 +136,19 @@ import java.util.Collections;
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FILE_NAME, true));
 
 
-                // Prompt the user to enter the date in the specified format and parse it
+                // Ask the user to enter the date in the specified format and parse it
                 System.out.println("Please enter the date in this format: (yyyy-MM-dd)");
                 String inputD = scanner.nextLine();
                 LocalDate realDate = LocalDate.parse(inputD,DATE_FORMATTER);
                 System.out.println(realDate);
 
-                // Prompt the user to enter the time in the specified format and parse it
+                // Ask the user to enter the time in the specified format and parse it
                 System.out.println("Please enter the time of the deposit in this format: (HH:mm:ss)");
                 String inputT = scanner.nextLine();
                 LocalTime realTime = LocalTime.parse(inputT,TIME_FORMATTER);
                 System.out.println(realTime);
 
-                // Prompt the user to enter the name of the vendor
+                // Ask the user to enter the name of the vendor
                 System.out.println("Please enter the name of the vendor: ");
                 String vendor = scanner.nextLine();
 
@@ -235,7 +233,7 @@ import java.util.Collections;
                 // Check if the deposit amount is negative and handle the error
                 if (paymentDouble > 0) {
                     System.out.println("Error: You have entered an incorrect amount.");
-                    System.out.println("=====================================================");
+                    System.out.println("=================================");
                 }
 
                 // Create a Transaction object with the entered data
@@ -300,9 +298,9 @@ import java.util.Collections;
 
         private static void displayLedger() {
             // Sort the transactions based on the transaction date in descending order
-            // We use the Collections.sort method to sort the transactions list based on the transaction date.
+            // Use the Collections.sort method to sort the transactions list based on the transaction date.
             // The custom Comparator compares the dates in reverse order, ensuring that the newest transactions appear at the top.
-            transactions.sort(new Comparator<Transaction>() {
+            Collections.sort(transactions, new Comparator<Transaction>() {
                 @Override
                 public int compare(Transaction t1, Transaction t2) {
                     // Compare the dates in reverse order to get newest first
@@ -311,14 +309,15 @@ import java.util.Collections;
             });
 
             // Display the sorted transactions in a table
-            System.out.println("[ ========== [All Transactions] ==========]");
+            System.out.println("[ ===== [All Transactions] ======] ");
 
-            //Headers and use \t to space the headers out.
+            //Use \t to space the headers out.
             System.out.println("\t\t\t\tDate\t\t\t\tTime\t\t\t\tType\t\t\t\tVendor\t\t\t\tAmount");
             for (Transaction transaction : transactions) {
                 System.out.println(transaction);
             }
         }
+
 
 
 
@@ -396,21 +395,24 @@ import java.util.Collections;
                         LocalDate thisMonth = LocalDate.now();
                         System.out.println("Displaying all the transactions for this month of " + thisMonth.getMonth() + ": ");
                         filterTransactionsByDate(thisMonth.withDayOfMonth(1), thisMonth);
-                        System.out.println("===========================");
+                        System.out.println("=========================");
+                        break;
                     case "2":
                         // Generate a report for all transactions within the previous month,
                         // including the date, vendor, and amount for each transaction.
                         LocalDate lastMonth = LocalDate.now().minusMonths(1);
                         System.out.println("Displaying all the transactions for this month of " + lastMonth.getMonth() + ": ");
                         filterTransactionsByDate(lastMonth.withDayOfMonth(1), lastMonth.withDayOfMonth(lastMonth.lengthOfMonth()));
-                        System.out.println("==========================");
+                        System.out.println("=====================");
+                        break;
                     case "3":
                         // Generate a report for all transactions within the current year,
                         // including the date, vendor, and amount for each transaction.
                         LocalDate thisYear = LocalDate.now();
                         System.out.println("Displaying all transactions for the year of " + thisYear.getYear() + " so far: ");
                         filterTransactionsByDate(thisYear.withDayOfYear(1), thisYear);
-                        System.out.println("=======================================");
+                        System.out.println("============================");
+                        break;
                     case "4":
                         // Generate a report for all transactions within the previous year,
                         // including the date, vendor, and amount for each transaction.
@@ -418,6 +420,7 @@ import java.util.Collections;
                         System.out.println("Displaying all transactions for the year of " + lastYear.getYear() + ": ");
                         filterTransactionsByDate(lastYear.withMonth(1).withDayOfMonth(1), lastYear.withMonth(12).withDayOfMonth(31));
                         System.out.println("==========================");
+                        break;
                     case "5":
                         // Prompt the user to enter a vendor name, then generate a report for all transactions
                         // with that vendor, including the date, vendor, and amount for each transaction.
@@ -434,7 +437,7 @@ import java.util.Collections;
                                 System.out.println(transaction); // You can adjust how you want to display the transactions
                             }
                         }
-                        System.out.println("===========================================");
+                        System.out.println("================================");
                     case "0":
                         running = false;
 

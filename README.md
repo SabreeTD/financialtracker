@@ -16,3 +16,9 @@ Every project I look to grow my knowledge and acquire a new skill.
 ![Screenshot 2023-10-27 040619](https://github.com/SabreeTD/financialtracker/assets/136769653/91c41bc1-ca1d-4694-afc0-78c51d6fc5a1)
 ### All Transactions
 ![Screenshot 2023-10-27 040912](https://github.com/SabreeTD/financialtracker/assets/136769653/15e110d7-3abe-4587-a56e-45039947c09d)
+
+## Challenges and Solutions
+
+One challenge I had was managing time. 
+I regret not managing my time better or reaching out for help
+to understand structure and apply more to this project.

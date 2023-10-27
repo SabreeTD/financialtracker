@@ -30,10 +30,10 @@ import java.util.Collections;
             boolean running = true;
 
             while (running) {
-                System.out.println("Welcome to TransactionApp");
+                System.out.println("Welcome to Dreamchaser's TransactionApp");
                 System.out.println("Choose an option:");
                 System.out.println("D) Add Deposit");
-                System.out.println("P) Make Payment (Debit)");
+                System.out.println("P) Make Payment ");
                 System.out.println("L) Ledger");
                 System.out.println("X) Exit");
 
@@ -126,7 +126,7 @@ import java.util.Collections;
 
 
         private static void addDeposit(Scanner scanner) {
-            // This method should prompt the user to enter the date, time, vendor, and amount of a deposit.
+            // This method should ask the user to enter the date, time, vendor, and amount of a deposit.
             // The user should enter the date and time in the following format: yyyy-MM-dd HH:mm:ss
             // The amount should be a positive number.
             // After validating the input, a new `Deposit` object should be created with the entered values.
@@ -152,12 +152,12 @@ import java.util.Collections;
                 System.out.println("Please enter the name of the vendor: ");
                 String vendor = scanner.nextLine();
 
-                // Prompt the user to give a description of the item they are buying
+                // Ask the user to give a description of the item they are buying
                 System.out.println("Please enter the Description of the item: ");
                 String description = scanner.nextLine();
 
 
-                // Prompt the user to enter the amount to deposit and validate it
+                // Ask the user to enter the amount to deposit and validate it
                 System.out.println("Please enter the amount you'd like to deposit:");
                 double depositDouble = scanner.nextDouble();
                 scanner.nextLine();
@@ -256,7 +256,7 @@ import java.util.Collections;
             } catch (Exception ex) {
                 // Handle any exceptions that may occur during input, writing, or parsing
                 System.out.println("Error!");
-                System.out.println("=====================================================");
+                System.out.println("=========================================");
             }
         }
 
@@ -289,6 +289,7 @@ import java.util.Collections;
                         break;
                     case "H":
                         running = false;
+                        break;
                     default:
                         System.out.println("Invalid option");
                         break;
@@ -312,7 +313,7 @@ import java.util.Collections;
             System.out.println("[ ===== [All Transactions] ======] ");
 
             //Use \t to space the headers out.
-            System.out.println("\t\t\t\tDate\t\t\t\tTime\t\t\t\tType\t\t\t\tVendor\t\t\t\tAmount");
+            System.out.println("\t\t\tDate\t\t\tTime\t\t\tType\t\t\tVendor\t\t\tAmount");
             for (Transaction transaction : transactions) {
                 System.out.println(transaction);
             }
@@ -342,7 +343,7 @@ import java.util.Collections;
             // This method should display a table of all payments in the `transactions` ArrayList.
             // The table should have columns for date, time, vendor, and amount.
             ArrayList<Transaction> List = new ArrayList<>();
-            System.out.println("[ ========== [All Payments] ==========]");
+            System.out.println("[ ========= [All Payments] =========]");
 
             //Headers and use \t to space the headers out
             System.out.println("\t\t\t\tDate\t\t\t\tTime\t\t\t\tType\t\t\t\tVendor\t\t\t\tAmount");

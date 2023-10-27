@@ -22,3 +22,15 @@ Every project I look to grow my knowledge and acquire a new skill.
 One challenge I had was managing time. 
 I regret not managing my time better or reaching out for help
 to understand structure and apply more to this project.
+
+## Tools
+IntelliJ
+Gitbash
+Github
+
+## Future Work
+In the future I plan to add colors and better layout designs to this application.
+
+## Collaborators
+
+
